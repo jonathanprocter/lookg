@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive psychoeducational cards covering confidence, communication, productivity, and personal growth. Browse by theme and discover insights to help you get unstuck.">
+  <meta name="keywords" content="psychoeducation, confidence, communication, productivity, personal growth, self-help, mental health">
+  <meta name="author" content="Unstuck Cards">
+  <title>Unstuck - Psychoeducational Cards for Personal Growth</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app-content">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <h1>Unstuck</h1>
+        <p class="header-subtitle">Psychoeducational Cards for Confidence, Communication & Productivity</p>
+        <p class="header-subtitle">Discover insights and strategies to help you move forward</p>
+      </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="search-container">
+        <div class="search-box">
+          <input 
+            type="search" 
+            id="search-input" 
+            class="search-input" 
+            list="search-suggestions"
+            placeholder="Search cards by title, content, or theme..."
+            aria-label="Search cards"
+          >
+          <datalist id="search-suggestions"></datalist>
+          <button
+            id="search-clear-btn"
+            class="search-clear-btn hidden"
+            aria-label="Clear search"
+            type="button"
+          >
+            Clear
+          </button>
+          <button
+            id="search-btn"
+            class="search-btn"
+            aria-label="Search"
+            type="button"
+          >
+            Search
+          </button>
+        </div>
+        <div class="search-controls">
+          <div class="quick-filters">
+            <span class="control-label">Quick filters</span>
+            <button id="filter-saved" class="chip-btn" type="button" aria-pressed="false">Saved</button>
+            <button id="filter-short" class="chip-btn" type="button" aria-pressed="false">Short reads</button>
+          </div>
+          <div class="sort-control">
+            <label for="sort-select" class="control-label">Sort by</label>
+            <select id="sort-select" class="sort-select">
+              <option value="relevance">Relevance</option>
+              <option value="newest">Newest</option>
+              <option value="most-viewed">Most viewed</option>
+            </select>
+          </div>
+          <div class="reading-controls">
+            <span class="control-label">Text size</span>
+            <button id="text-sm" class="chip-btn" type="button">A-</button>
+            <button id="text-md" class="chip-btn" type="button">A</button>
+            <button id="text-lg" class="chip-btn" type="button">A+</button>
+            <button id="reading-mode-toggle" class="chip-btn" type="button" aria-pressed="false">Reading mode</button>
+          </div>
+        </div>
+        <div class="continue-card hidden" id="continue-card">
+          <button id="continue-btn" class="continue-btn" type="button">Continue last card</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+      <div class="filter-container">
+        <h2 class="filter-title">Browse by Theme</h2>
+        <div
+          id="theme-filters"
+          class="theme-filters"
+          role="group"
+          aria-label="Theme filters"
+        >
+          <!-- Filter buttons will be dynamically generated here -->
+        </div>
+        <div class="active-filters" id="active-filters" aria-live="polite" aria-atomic="true">
+          <!-- Active filters will be dynamically generated here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <main class="cards-section" id="cards-container">
+      <div class="cards-header">
+        <p id="card-count" class="card-count" role="status" aria-live="polite" aria-atomic="true">Loading cards...</p>
+      </div>
+      <div
+        id="cards-grid"
+        class="cards-grid"
+        role="list"
+      >
+        <!-- Cards will be dynamically generated here -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>Jonathan E. Procter</p>
+        <p class="footer-note">Keyboard tips: use Tab to move, Enter to open a card, and Esc to close the modal.</p>
+        <p class="footer-note">Accessibility statement: this site is designed to be keyboard navigable, screen-reader friendly, and adjustable for readability.</p>
+        <p class="footer-note">If you are in the U.S. and need help now, call or text 988 for the Suicide & Crisis Lifeline.</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="floating-actions" aria-label="Quick actions">
+    <button id="back-to-results" class="floating-btn" type="button" aria-label="Back to results">Back to results</button>
+    <button id="back-to-top" class="floating-btn" type="button" aria-label="Back to top">Back to top</button>
+  </div>
+
+  <!-- Modal for Card Details -->
+  <div
+    id="card-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-content" id="modal-card-content">
+      <!-- Modal content will be dynamically generated here -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/cards-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
